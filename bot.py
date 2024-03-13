@@ -1,5 +1,8 @@
 import streamlit as st
 from utils import write_message
+from llm import llm, embeddings
+from graph import graph
+from agent import generate_response
 
 # tag::setup[]
 # Page Config
@@ -10,7 +13,7 @@ st.set_page_config("Ebert", page_icon=":movie_camera:")
 # Set up Session State
 if "messages" not in st.session_state:
     st.session_state.messages = [
-        {"role": "assistant", "content": "Hi, I'm the GraphAcademy Chatbot!  How can I help you?"},
+        {"role": "assistant", "content": "Hi, I'm the Tempest Knowledge Graph Chatbot!  How can I help you?"},
     ]
 # end::session[]
 
@@ -26,10 +29,8 @@ def handle_submit(message):
 
     # Handle the response
     with st.spinner('Thinking...'):
-        # # TODO: Replace this with a call to your LLM
-        from time import sleep
-        sleep(1)
-        write_message('assistant', message)
+        response = generate_response(message)
+        write_message('assistant', response)
 # end::submit[]
 
 
