@@ -8,6 +8,7 @@ from langchain.prompts import PromptTemplate
 from llm import llm
 from tools.vector import kg_qa
 from tools.cypher import cypher_qa
+import tools.recommendation
 
 tools = [
     Tool.from_function(
@@ -17,9 +18,15 @@ tools = [
         return_direct=True,
     ),
     Tool.from_function(
+        name="Recommendation",
+        description="Use this tool to find related articles for a given article",
+        func=tools.recommendation.run,
+        return_direct=True,
+    ),
+    Tool.from_function(
         name="Vector Search Index",
         description="Provides information about data in Tempest using Vector Search",
-        func=kg_qa,
+        func=kg_qa.run,
         return_direct=True,
     ),
     Tool.from_function(

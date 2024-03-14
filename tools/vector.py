@@ -17,9 +17,9 @@ RETURN
     node.body AS text,
     score,
     {
+	id: node.id,
         title: node.title,
-        authors: [ (node)-[:AUTHORED]->(author) | author.title ],
-	tags: [ (node)-[:TAGGED]->(tag) | tag.title ],
+        authors: [ (author)-[:AUTHORED]->(node) | author.title ],
 	tickers: [ (node)-[:ABOUT_TICKER]->(ticker) | ticker.symbol ],
 	url: node.url
     } AS metadata
