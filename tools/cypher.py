@@ -32,3 +32,12 @@ cypher_qa = GraphCypherQAChain.from_llm(
     verbose=True,
     cypher_prompt=cypher_prompt
 )
+# cypher_qa = GraphCypherQAChain.from_llm(
+#     llm=llm,
+#     graph=graph,  # (2)
+#     verbose=True
+# )
+
+# response = cypher_qa.run("List title and url of five oldest articles about TSLA.")
+
+# print(response)

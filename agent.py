@@ -25,7 +25,7 @@ tools = [
     Tool.from_function(
         name="Graph Cypher QA Chain",
         description="Provides information about data in Tempest including their authors, taga, and tickers",
-        func=cypher_qa,
+        func=cypher_qa.run,
         return_direct=True,
     ),
 ]
