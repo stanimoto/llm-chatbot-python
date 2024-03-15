@@ -23,12 +23,12 @@ tools = [
         func=tools.recommendation.run,
         return_direct=True,
     ),
-    Tool.from_function(
-        name="Vector Search Index",
-        description="Provides information about data in Tempest using Vector Search",
-        func=kg_qa.run,
-        return_direct=True,
-    ),
+    #Tool.from_function(
+    #    name="Vector Search Index",
+    #    description="Provides information about data in Tempest using Vector Search",
+    #    func=kg_qa.run,
+    #    return_direct=True,
+    #),
     Tool.from_function(
         name="Graph Cypher QA Chain",
         description="Provides information about data in Tempest including their authors, taga, and tickers",

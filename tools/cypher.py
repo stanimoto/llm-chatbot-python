@@ -11,17 +11,19 @@ Convert the user's question based on the schema.
 Use only the provided relationship types and properties in the schema.
 Do not use any other relationship types or properties that are not provided.
 
-Fine Tuning:
+Example Cypher Statements:
 
-Nothing for now.
+1. When asked to generate key points from the article titled 'This is Foo', you can use this query to load the content, then generate key points from it.
+```
+MATCH (a:Article {{title: "This is Foo"}})
+RETURN a.body as article
+```
 
 Schema:
 {schema}
 
 Question:
 {question}
-
-Cypher Query:
 """
 
 cypher_prompt = PromptTemplate.from_template(CYPHER_GENERATION_TEMPLATE)
